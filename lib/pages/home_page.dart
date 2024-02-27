@@ -55,15 +55,14 @@ class _MyHomePageState extends State<MyHomePage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.network(
-                  "https://image.hurimg.com/i/hurriyet/75/1110x740/5b8e6d967152d827603dd434.jpg",
-                  height: 100,
-                  width: 100,
-                ),
-                Image.network(
-                  "https://image.hurimg.com/i/hurriyet/75/1110x740/5b8e6d967152d827603dd434.jpg",
-                  height: 100,
-                  width: 100,
+                Container(
+                  color: Colors.amber,
+                  child: Image.network(
+                    "https://image.hurimg.com/i/hurriyet/75/1110x740/5b8e6d967152d827603dd434.jpg",
+                    height: 100,
+                    width: 300,
+                    fit: BoxFit.contain,
+                  ),
                 ),
               ],
             ),
