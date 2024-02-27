@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:ders1/pages/profile_page.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -13,6 +15,12 @@ class _MyHomePageState extends State<MyHomePage> {
   void _incrementCounter() {
     setState(() {
       _counter++;
+    });
+  }
+
+  void _decrementCounter() {
+    setState(() {
+      _counter--;
     });
   }
 
@@ -55,21 +63,51 @@ class _MyHomePageState extends State<MyHomePage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                const Spacer(),
                 Container(
                   color: Colors.amber,
-                  child: Image.network(
-                    "https://image.hurimg.com/i/hurriyet/75/1110x740/5b8e6d967152d827603dd434.jpg",
+                  child: CachedNetworkImage(
+                    imageUrl:
+                        "https://image.hurimg.com/i/hurriyet/75/1110x740/5b8e6d967152d827603dd434.jpg",
                     height: 100,
-                    width: 300,
-                    fit: BoxFit.contain,
+                    width: 100,
+                    fit: BoxFit.cover,
                   ),
                 ),
+                const Spacer(),
+                Container(
+                  color: Colors.amber,
+                  child: CachedNetworkImage(
+                    imageUrl:
+                        "https://image.hurimg.com/i/hurriyet/75/1110x740/5b8e6d967152d827603dd434.jpg",
+                    height: 100,
+                    width: 100,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                const Spacer(),
               ],
             ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ProfilePage(),
+                  ),
+                );
+              },
+              style: const ButtonStyle(
+                backgroundColor: MaterialStatePropertyAll(Colors.amber),
+              ),
+              child: const Icon(Icons.exposure_minus_1_rounded),
+            )
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.red,
+        foregroundColor: Colors.green,
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
